@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/PFAM_effect
+#PBS -N tmhmm_effect
+#PBS -o tmhmm_effect.out
+#PBS -e tmhmm_effect.err
+#PBS -l nodes=1:ppn=32,mem=200gb,walltime=24:00:00
+module load R/3.4.4
+
+R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/PFAM_effect/3.3-BRCA_isoforms.R
