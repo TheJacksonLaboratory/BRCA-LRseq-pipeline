@@ -1,0 +1,30 @@
+#!/bin/bash
+#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/sqanti
+#PBS -N sqanti_indel
+#PBS -o sqanti_indel.out
+#PBS -e sqanti_indel.err
+#PBS -l nodes=4:ppn=16,mem=128gb,walltime=72:00:00
+
+#source /projects/banchereau-lab/ISO-seq/annotation_processing/pitchfork_ToFU2_dev/setup-env.sh
+module load blast+/2.6.0
+module load hmmr3/3.1
+module load R/3.4.4
+module load gmap-gsnap/2015-12-31
+
+cd $PBS_O_WORKDIR
+
+# ***** Requirements ****
+
+## Input Data files
+#These files are generated in PacBio
+
+ISOFORMS_GTF="/projects/dveiga/analysis/git/BRCA_isoforms/PacBio_Breast_cancer_allTranscripts.gtf"
+REF_GENOME="/projects/zhaoy/Human_Mouse_Genome/Human/hg38.fa" #uses chr1, chr2,
+REF_GTF="/projects/banchereau-lab/tools/Gencode_30/gencode.v30.annotation.gtf"
+# Gmap index of Reference
+GMAP_INDEX="/projects/banchereau-lab/ISO-seq/annotation_processing/GRCh38/release-88/gmap-gsnap-2015-12-31-chr-indices/hg38"
+
+# **** RUN STEPS *****
+
+# Running SQANTI gmap alignment (indel correction)
+python /projects/banchereau-lab/tools/sqanti/sqanti_qc.py -g -t 96 -x $GMAP_INDEX $ISOFORMS_GTF $REF_GTF $REF_GENOME

@@ -1,0 +1,32 @@
+#!/bin/bash
+#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/sqanti2
+#PBS -v PATH
+#PBS -q batch
+#PBS -l nodes=4:ppn=8
+#PBS -l mem=100G
+#PBS -l walltime=72:00:00
+#PBS -N SQANTI2
+cd $PBS_O_WORKDIR
+module load R/3.4.4
+
+source activate anaCogent3
+export PYTHONPATH=$PYTHONPATH:/projects/banchereau-lab/tools/cDNA_Cupcake/sequence/
+
+## Input Data files
+isoformsGTF="/projects/dveiga/analysis/git/BRCA_isoforms/PacBio_Breast_cancer_allTranscripts.gtf"
+cagePeaks="/projects/banchereau-lab/tools/SQANTI2_auxiliary/hg38.cage_peak_phase1and2combined_coord.bed"
+polyAMotifs="/projects/banchereau-lab/tools/SQANTI2_auxiliary/human.polyA.list.txt"
+intropolis="/projects/banchereau-lab/tools/SQANTI2_auxiliary/intropolis.v1.hg19_with_liftover_to_hg38.tsv.min_count_10.modified"
+
+# Reference files
+# Reference sequences
+refGenome="/projects/zhaoy/Human_Mouse_Genome/Human/hg38.fa"
+# Reference genome annotation
+refGTF="/projects/banchereau-lab/tools/Gencode_30/gencode.v30.annotation.gtf"
+
+# Running SQANTI QC
+python /projects/banchereau-lab/tools/SQANTI2/sqanti_qc2.py -t 32 --gtf $isoformsGTF \
+     $refGTF $refGenome \
+     --polyA_motif_list $polyAMotifs \
+     --cage_peak $cagePeaks \
+     -c $intropolis
