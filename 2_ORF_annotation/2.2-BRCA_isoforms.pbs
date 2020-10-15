@@ -6,4 +6,4 @@
 #PBS -l nodes=1:ppn=32,mem=200gb,walltime=72:00:00
 module load R/3.4.4
 
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/PFAM_effect/3.2-BRCA_isoforms.R
+R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/PFAM_effect/2.2-BRCA_isoforms.R

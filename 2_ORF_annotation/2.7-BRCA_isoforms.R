@@ -2,7 +2,6 @@ library(dplyr)
 
 # Statistics on the Subset of non-NMD and novel ORFs used for functional analysis (PFAM, transmembrane, localization)
 
-
 load("./transdecoder_globalAlignment/Transdecoder_map_aligned.Rd")
 head(transdecoder_aligned)
 

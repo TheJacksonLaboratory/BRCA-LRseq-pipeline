@@ -5,6 +5,7 @@ library(parallel)
 
 # Isoform functional annotation
 # 2. Test presence/absence of transmembrane domains (TMHMM) comparing PacBio ORF and UniProt by splice variants
+# ***** RUN on cluster using 2.3-BRCA_isoforms.pbs
 
 # INPUTS local
 # input_Pacbio_to_ORF <- "./transdecoder/Transdecoder_map_aligned_annot.Rd"

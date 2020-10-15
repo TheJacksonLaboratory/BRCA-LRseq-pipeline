@@ -4,10 +4,11 @@ library(doParallel)
 library(parallel)
 
 
-# ***** RUN on helix
 # GLOBAL PAIRWISE ALIGNMENT WITH UNIPROT
 # Analysis to compute ORF Percent identity to known UNIPROT isoforms
 # Align ORF from FL isoform to closest Uniprot (defined by blastp agains Uniprot)
+# ***** RUN on cluster using 2.1-BRCA_isoforms.pbs
+
 
 #MODIFY PATHS
 in_transdecoder <- "./Transdecoder_to_Pacbio.Rd"

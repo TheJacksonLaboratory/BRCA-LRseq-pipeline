@@ -3,11 +3,10 @@ library(parallel)
 library(doParallel)
 library(rtracklayer)
 
+# Run in cluster using 1.2-BRCA_isoforms.pbs
 # Remove duplicates from final set of transcripts
 # GTF Generation and 
 # Sqanti annotation for QC pass transcripts without duplicates
-
-#gtf_file <- "./QC_passed/PacBio_Breast_Cancer_all_QC_pass_transcripts.gtf"
 
 gtf_file <- "/projects/dveiga/analysis/git/BRCA_isoforms/QC_passed/PacBio_Breast_Cancer_all_QC_pass_transcripts.gtf"
 

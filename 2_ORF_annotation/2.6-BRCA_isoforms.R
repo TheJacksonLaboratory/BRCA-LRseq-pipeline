@@ -8,7 +8,7 @@ library(parallel)
 
 
 # *********** PTC Premature termination codon analysis
-#
+# ***** RUN on cluster using 2.6-BRCA_isoforms.pbs
 
 # Local variables
 input_Pacbio_to_ORF <- "./transdecoder_globalAlignment/Transdecoder_map_aligned.Rd"

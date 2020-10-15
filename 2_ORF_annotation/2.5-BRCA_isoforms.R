@@ -8,6 +8,7 @@ library(doParallel)
 library(parallel)
 
 # Transdecoder precision analysis on FSM transcripts with exact first and last exons
+# ***** RUN on cluster using 2.5-BRCA_isoforms.pbs
 
 # TP - fsm exact ORFs > 99% identity
 # FP - fsm exact ORFs < 99% identity

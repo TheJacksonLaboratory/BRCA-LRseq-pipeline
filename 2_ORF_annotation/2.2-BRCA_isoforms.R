@@ -6,6 +6,7 @@ library(parallel)
 
 # Isoform functional annotation
 # 1. Test presence/absence of PFAM domains comparing PacBio ORF and UniProt by splice variants
+# ***** RUN on cluster using 2.1-BRCA_isoforms.pbs
 
 # INPUTS local
 # input_Pacbio_to_ORF <- "./transdecoder/Transdecoder_map_aligned_annot.Rd"
