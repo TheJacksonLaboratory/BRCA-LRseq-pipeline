@@ -1,9 +1,0 @@
-#!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/suppa
-#PBS -N gmm
-#PBS -o gmm.out
-#PBS -e gmm.err
-#PBS -l nodes=1:ppn=16,mem=32gb,walltime=72:00:00
-module load R/3.4.4
-
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa/3.3-BRCA_isoforms.R
