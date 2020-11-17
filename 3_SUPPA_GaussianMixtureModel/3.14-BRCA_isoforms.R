@@ -8,19 +8,19 @@ rm(list = ls())
 
 source("3.2-BRCA_isoforms.R")
 
-AL <- read.table(file = "suppa_250bp/AL_clusters_annotated.tsv", 
+AL <- read.table(file = "data/GMM_results/AL_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-AF <- read.table(file = "suppa_250bp/AF_clusters_annotated.tsv", 
+AF <- read.table(file = "data/GMM_results/AF_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-SE <- read.table(file = "suppa_gtex/SE_clusters_annotated.tsv", 
+SE <- read.table(file = "data/GMM_results/SE_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-MX <- read.table(file = "suppa_gtex/MX_clusters_annotated.tsv", 
+MX <- read.table(file = "data/GMM_results/MX_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-RI <- read.table(file = "suppa_gtex/RI_clusters_annotated.tsv", 
+RI <- read.table(file = "data/GMM_results/RI_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-A5 <- read.table(file = "suppa_gtex/A5_clusters_annotated.tsv", 
+A5 <- read.table(file = "data/GMM_results/A5_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-A3 <- read.table(file = "suppa_gtex/A3_clusters_annotated.tsv", 
+A3 <- read.table(file = "data/GMM_results/A3_clusters_annotated.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
 all_clusters <- rbind(
@@ -78,11 +78,11 @@ all_clusters_sig %>% group_by(type) %>%
   dplyr::summarise(n())
 
 write.table(all_clusters_sig, 
-            file = "suppa_gtex/all_clusters_differentialSplicing.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/all_clusters_differentialSplicing.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 
-all_clusters_sig <- read.table(file = "suppa_gtex/all_clusters_differentialSplicing.tsv", 
+all_clusters_sig <- read.table(file = "data/GMM_results/all_clusters_differentialSplicing.tsv", 
                  sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 head(all_clusters_sig)
 

@@ -9,7 +9,7 @@ library(dplyr)
 
 # ********* A5 events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/A5_clust_BRCA_TCGA.RData")
+load("data/GMM_results/A5_clust_BRCA_TCGA.RData")
 dim(A5_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -23,7 +23,7 @@ A5_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* A3 events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/A3_clust_BRCA_TCGA.RData")
+load("data/GMM_results/A3_clust_BRCA_TCGA.RData")
 dim(A3_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -37,7 +37,7 @@ A3_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* MX events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/MX_clust_BRCA_TCGA.RData")
+load("data/GMM_results/MX_clust_BRCA_TCGA.RData")
 dim(MX_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -51,7 +51,7 @@ MX_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* SE events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/SE_clust_BRCA_TCGA.RData")
+load("data/GMM_results/SE_clust_BRCA_TCGA.RData")
 dim(clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -65,7 +65,7 @@ SE_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* RI events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/RI_clust_BRCA_TCGA.RData")
+load("data/GMM_results/RI_clust_BRCA_TCGA.RData")
 dim(RI_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -79,7 +79,7 @@ RI_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* AF events 250bp
 # Load clust object with GMM results
-load("./suppa_250bp/AF_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AF_250bp_clust_BRCA_TCGA.RData")
 dim(AF_250bp_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -93,7 +93,7 @@ AF_250bp_ts_clusters_pam50 %>% filter(Basal_Like > -1*log10(0.01)) %>% count()
 
 # ********* AF events 250bp
 # Load clust object with GMM results
-load("./suppa_250bp/AL_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AL_250bp_clust_BRCA_TCGA.RData")
 dim(AL_250bp_clust$ts_clusters)
 
 # PAM50 enrichment analysis
@@ -130,5 +130,5 @@ all_ts_clusters_pam50 %>% filter(HER2 > -1*log10(0.01)) %>%
 
 all_ts_clusters_pam50 %>% group_by(type) %>% count()
 
-save(all_ts_clusters_pam50, file = "suppa_gtex/all_events_ts_clusters_pam50.RData")
+save(all_ts_clusters_pam50, file = "data/GMM_results/all_events_ts_clusters_pam50.RData")
 

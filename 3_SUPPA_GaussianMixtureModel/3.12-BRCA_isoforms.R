@@ -12,8 +12,8 @@ rm(list = ls())
 source("3.2-BRCA_isoforms.R")
 
 # Load PAM50 enrichment results
-load("suppa_gtex/all_events_ts_clusters_pam50.RData")
-#save(all_ts_clusters_pam50, file = "suppa_gtex/all_events_ts_clusters_pam50.RData")
+load("data/GMM_results/all_events_ts_clusters_pam50.RData")
+#save(all_ts_clusters_pam50, file = "data/GMM_results/all_events_ts_clusters_pam50.RData")
 pam50 <- all_ts_clusters_pam50 %>% 
   dplyr::select(c("Junction", "Gene", "Cluster",
                   "Basal_Like", "LuminalA", "LuminalB", "HER2")) %>%
@@ -52,8 +52,8 @@ head(pam50_adj)
 head(all_ts_clusters_pam50)
 
 # Load survival enrichment results
-#save(all_ts_clusters_surv, file = "suppa_gtex/all_events_ts_clusters_surv.RData")
-load("suppa_gtex/all_events_ts_clusters_surv_subpopulation.RData")
+#save(all_ts_clusters_surv, file = "data/GMM_results/all_events_ts_clusters_surv.RData")
+load("data/GMM_results/all_events_ts_clusters_surv_subpopulation.RData")
 table(all_ts_clusters_surv$type)
 head(all_ts_clusters_surv)
 # surv <- all_ts_clusters_surv %>% 
@@ -85,7 +85,7 @@ surv %>% filter(Survival_overall_sig == TRUE) %>%
 
 # ********* A5 events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/A5_clust_BRCA_TCGA.RData")
+load("data/GMM_results/gmm_results/A5_clust_BRCA_TCGA.RData")
 dim(A5_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
@@ -118,13 +118,13 @@ A5_clusters_annot5 <- inner_join(A5_clusters_annot4, surv,
                                  by = c("Junction", "Cluster", "Gene"))
 
 write.table(A5_clusters_annot5, 
-            file = "suppa_gtex/A5_clusters_annotated.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/A5_clusters_annotated.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 
 # ********* A3events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/A3_clust_BRCA_TCGA.RData")
+load("data/GMM_results/gmm_results/A3_clust_BRCA_TCGA.RData")
 dim(A3_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
@@ -156,13 +156,13 @@ A3_clusters_annot5 <- inner_join(A3_clusters_annot4, surv,
                                  by = c("Junction", "Cluster", "Gene"))
 
 write.table(A3_clusters_annot5, 
-            file = "suppa_gtex/A3_clusters_annotated.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/A3_clusters_annotated.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 
 # ********* MX events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/MX_clust_BRCA_TCGA.RData")
+load("data/GMM_results/gmm_results/MX_clust_BRCA_TCGA.RData")
 dim(MX_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
@@ -194,13 +194,13 @@ MX_clusters_annot5 <- inner_join(MX_clusters_annot4, surv,
                                  by = c("Junction", "Cluster", "Gene"))
 
 write.table(MX_clusters_annot5, 
-            file = "suppa_gtex/MX_clusters_annotated.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/MX_clusters_annotated.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 
 # ********* RI events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/RI_clust_BRCA_TCGA.RData")
+load("data/GMM_results/gmm_results/RI_clust_BRCA_TCGA.RData")
 dim(RI_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
@@ -232,12 +232,12 @@ RI_clusters_annot5 <- inner_join(RI_clusters_annot4, surv,
                                  by = c("Junction", "Cluster", "Gene"))
 
 write.table(RI_clusters_annot5, 
-            file = "suppa_gtex/RI_clusters_annotated.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/RI_clusters_annotated.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 # ********* SE events
 # Load clust object with GMM results
-load("./suppa_gtex/gmm_results/SE_clust_BRCA_TCGA.RData")
+load("data/GMM_results/gmm_results/SE_clust_BRCA_TCGA.RData")
 dim(clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
@@ -269,16 +269,16 @@ SE_clusters_annot5 <- inner_join(SE_clusters_annot4, surv,
                                  by = c("Junction", "Cluster", "Gene"))
 
 write.table(SE_clusters_annot5, 
-            file = "suppa_gtex/SE_clusters_annotated.tsv", sep = "\t", quote = TRUE,
+            file = "data/GMM_results/SE_clusters_annotated.tsv", sep = "\t", quote = TRUE,
             row.names = FALSE)
 
 # ********* AL events
 # Load clust object with GMM results
-load("./suppa_250bp/AL_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AL_250bp_clust_BRCA_TCGA.RData")
 dim(AL_250bp_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
-ioe <- getSuppaTranscripts("./suppa_250bp/suppa_events/AS_events_AL_variable_250.ioe") 
+ioe <- getSuppaTranscripts("data/GMM_results/suppa_events/AS_events_AL_variable_250.ioe") 
 head(ioe)
 
 AL_clusters_annot <- inner_join(AL_250bp_clust$ts_clusters, ioe, 
@@ -316,11 +316,11 @@ write.table(AL_clusters_annot5,
 
 # ********* AL events
 # Load clust object with GMM results
-load("./suppa_250bp/AF_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AF_250bp_clust_BRCA_TCGA.RData")
 dim(AF_250bp_clust$ts_clusters)
 
 # 1. Add transcript annotation to clusters
-ioe <- getSuppaTranscripts("./suppa_250bp/suppa_events/AS_events_AF_variable_250.ioe") 
+ioe <- getSuppaTranscripts("data/GMM_results/suppa_events/AS_events_AF_variable_250.ioe") 
 head(ioe)
 
 AF_clusters_annot <- inner_join(AF_250bp_clust$ts_clusters, ioe, 

@@ -10,7 +10,7 @@ library(dplyr)
 
 # ********* AF events
 # Load clust object with GMM results
-load("./suppa_250bp/AF_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AF_250bp_clust_BRCA_TCGA.RData")
 dim(AF_250bp_clust$ts_clusters)
 
 out_folder <- "BRCA_TCGA_AF_250bp"
@@ -28,7 +28,7 @@ AF_250bp_ts_clusters_surv$type <- "AF_250bp"
 
 # ********* AL events
 # Load clust object with GMM results
-load("./suppa_250bp/AL_250bp_clust_BRCA_TCGA.RData")
+load("data/GMM_results/AL_250bp_clust_BRCA_TCGA.RData")
 dim(AL_250bp_clust$ts_clusters)
 
 out_folder <- "BRCA_TCGA_AL_250bp"
@@ -54,4 +54,4 @@ all_ts_clusters_surv_250 %>% filter(Survival_pval < 0.01) %>%
 
 all_ts_clusters_surv_250 %>% group_by(type) %>% count()
 
-save(all_ts_clusters_surv_250, file = "suppa_250bp/all_events_ts_clusters_surv_250bp.RData")
+save(all_ts_clusters_surv_250, file = "data/GMM_results/all_events_ts_clusters_surv_250bp.RData")
