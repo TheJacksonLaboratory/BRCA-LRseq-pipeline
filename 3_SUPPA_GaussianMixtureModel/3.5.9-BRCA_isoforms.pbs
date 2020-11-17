@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp
+#PBS -N gmm_AL
+#PBS -o gmm_AL.out
+#PBS -e gmm_AL.err
+#PBS -l nodes=1:ppn=4,mem=32gb,walltime=72:00:00
+module load R/3.4.4
+
+# GMM AL events - 250bp
+R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp/3.5.9-BRCA_isoforms.R

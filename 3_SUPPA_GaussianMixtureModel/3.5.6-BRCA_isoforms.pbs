@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex
+#PBS -N gmm_MX
+#PBS -o gmm_MX.out
+#PBS -e gmm_MX.err
+#PBS -l nodes=1:ppn=16,mem=32gb,walltime=72:00:00
+module load R/3.4.4
+
+# GMM MX events
+R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex/3.5.6-BRCA_isoforms.R
