@@ -1,9 +1,15 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/PTC_effect
-#PBS -N PTC_effect
-#PBS -o PTC_effect.out
-#PBS -e PTC_effect.err
-#PBS -l nodes=4:ppn=16,mem=200gb,walltime=72:00:00
-module load R/3.4.4
+#SBATCH -J PTC_effect
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/PTC_effect
+#SBATCH -N 4
+#SBATCH -n 16
+#SBATCH --mem 200G
+#SBATCH -t 0-72:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
+set -u
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+$dir_r/R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/PTC_effect/2.6-BRCA_isoforms.R
 
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/PTC_effect/2.6-BRCA_isoforms.R

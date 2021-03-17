@@ -1,17 +1,21 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/sqanti
-#PBS -N sqanti_indel
-#PBS -o sqanti_indel.out
-#PBS -e sqanti_indel.err
-#PBS -l nodes=4:ppn=16,mem=128gb,walltime=72:00:00
+#SBATCH -J sqanti_indel
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/sqanti
+#SBATCH -N 4
+#SBATCH -n=16
+#SBATCH --mem 128G
+#SBATCH -t 0-72:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
 
 #source /projects/banchereau-lab/ISO-seq/annotation_processing/pitchfork_ToFU2_dev/setup-env.sh
-module load blast+/2.6.0
-module load hmmr3/3.1
-module load R/3.4.4
-module load gmap-gsnap/2015-12-31
-
-cd $PBS_O_WORKDIR
+dir_blast=/projects/banchereau-lab/tools/blast/2_6_0/bin
+dir_hmmer=/projects/banchereau-lab/tools/hmmer3/3_1/bin
+dir_gmap=/projects/banchereau-lab/tools/gmap_gsnap/2015_12_31/bin
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+PATH="$dir_blast:$dir_hmmer:$dir_gmap:$dir_r:$PATH"
 
 # ***** Requirements ****
 

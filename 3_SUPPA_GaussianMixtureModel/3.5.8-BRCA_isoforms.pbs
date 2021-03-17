@@ -1,10 +1,15 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp
-#PBS -N gmm_AF
-#PBS -o gmm_AF.out
-#PBS -e gmm_AF.err
-#PBS -l nodes=1:ppn=16,mem=32gb,walltime=72:00:00
-module load R/3.4.4
+#SBATCH -J gmm_AF
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp
+#SBATCH -N 1
+#SBATCH -n=16
+#SBATCH --mem 32G
+#SBATCH -t 0-72:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
+set -u
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+$dir_r/R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp/3.5.8-BRCA_isoforms.R
 
-# GMM AF events - 250bp
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_250bp/3.5.8-BRCA_isoforms.R
