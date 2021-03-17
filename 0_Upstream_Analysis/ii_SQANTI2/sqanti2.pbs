@@ -1,13 +1,17 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/sqanti2
-#PBS -v PATH
-#PBS -q batch
-#PBS -l nodes=4:ppn=8
-#PBS -l mem=100G
-#PBS -l walltime=72:00:00
-#PBS -N SQANTI2
-cd $PBS_O_WORKDIR
-module load R/3.4.4
+#SBATCH -J SQANTI2
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/sqanti2
+#SBATCH -N 4
+#SBATCH -n=8
+#SBATCH --mem 100G
+#SBATCH -t 0-72:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
+
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+PATH="$dir_r:$PATH"
 
 source activate anaCogent3
 export PYTHONPATH=$PYTHONPATH:/projects/banchereau-lab/tools/cDNA_Cupcake/sequence/
