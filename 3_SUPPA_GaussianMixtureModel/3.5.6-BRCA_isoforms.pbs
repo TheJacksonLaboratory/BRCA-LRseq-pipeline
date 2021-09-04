@@ -1,10 +1,15 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex
-#PBS -N gmm_MX
-#PBS -o gmm_MX.out
-#PBS -e gmm_MX.err
-#PBS -l nodes=1:ppn=16,mem=32gb,walltime=72:00:00
-module load R/3.4.4
+#SBATCH -J gmm_MX
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex
+#SBATCH -N 1
+#SBATCH -n=16
+#SBATCH --mem 32G
+#SBATCH -t 0-72:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
+set -u
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+$dir_r/R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex/3.5.6-BRCA_isoforms.R
 
-# GMM MX events
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/suppa_gtex/3.5.6-BRCA_isoforms.R

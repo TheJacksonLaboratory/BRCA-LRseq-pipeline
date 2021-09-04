@@ -1,8 +1,15 @@
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder_globalAlignment
-#PBS -N transdecoder_downstream
-#PBS -o transdecoder_downstream.out
-#PBS -e transdecoder_downstream.err
-#PBS -l nodes=1:ppn=32,mem=32gb,walltime=12:00:00
-module load R/3.4.4
+#!/bin/bash
+#SBATCH -J transdecoder_downstream
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder_globalAlignment
+#SBATCH -N 1
+#SBATCH -n=32
+#SBATCH --mem 32G
+#SBATCH -t 0-12:00:00
+#SBATCH -p compute
+#SBATCH -q batch
+#SBATCH -o %x.out
+#SBATCH -e %x.out
+set -u
+dir_r=/projects/banchereau-lab/tools/3_4_4/bin
+$dir_r/R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder_globalAlignment/2.1-BRCA_isoforms.R
 
-R CMD BATCH /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder_globalAlignment/2.1-BRCA_isoforms.R

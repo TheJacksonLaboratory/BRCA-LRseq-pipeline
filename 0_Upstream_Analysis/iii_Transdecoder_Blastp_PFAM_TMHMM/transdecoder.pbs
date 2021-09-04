@@ -1,16 +1,19 @@
 #!/bin/bash
-#PBS -d /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder
-#PBS -N transdecoder
-#PBS -o transdecoder.out
-#PBS -e transdecoder.err
-#PBS -q long
-#PBS -l nodes=6:ppn=16,mem=200gb,walltime=500:00:00
+#SBATCH -J transdecoder
+#SBATCH -D /projects/dveiga/analysis/git/BRCA_isoforms/transdecoder
+#SBATCH -N 6
+#SBATCH -n=16
+#SBATCH --mem 200G
+#SBATCH -t 14-00:00:00
+#SBATCH -p compute
+#SBATCH -q long
+#SBATCH -o %x.out
+#SBATCH -e %x.out
 
-module load blast+/2.6.0
-module load hmmr3/3.1
+set -u
 
-
-cd $PBS_O_WORKDIR
+dir_blast=/projects/banchereau-lab/tools/blast/2_6_0/bin
+dir_hmmer=/projects/banchereau-lab/tools/hmmer3/3_1/bin
 
 # *** Modify FASTA and PEP files ****
 SQANTI_FA="/projects/dveiga/analysis/git/BRCA_isoforms/sqanti2/PacBio_Breast_cancer_allTranscripts_corrected.fasta"
@@ -38,13 +41,13 @@ $RETAIN_PEP="PacBio_Breast_cancer_allTranscripts_corrected.fasta.transdecoder.pe
 
 # Step 2 - Run BLASTP against Uniprot isoforms
 #makeblastdb -in uniprot_sprot.fasta -dbtype prot -parse_seqids
-blastp -query $PEP  \
+$dir_blast/blastp -query $PEP  \
    -db $BLAST_DB  -max_target_seqs 1 \
    -outfmt 6 -evalue 1e-5 -num_threads 96 > blastp.out
 
 # Step 3 - Run hmmscan to detect PFAM domains
 #hmmpress $PFAM_DB
-hmmscan --cpu 96 --domtblout pfam.domtblout $PFAM_DB $PEP
+$dir_hmmer/hmmscan --cpu 96 --domtblout pfam.domtblout $PFAM_DB $PEP
 
 # Step 4 - Run TransDecoder.Predict
 # Retain ORFs with blastp OR pfam hits
