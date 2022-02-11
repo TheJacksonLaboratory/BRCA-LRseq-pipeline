@@ -1,7 +1,8 @@
 # BRCA-LRseq-pipeline
-Pipeline to analyze long-read isoforms and ORF products sequenced using the PacBio Single-Molecule platform in breast cancer
-
 This is the repository of the paper **A comprehensive long-read isoform analysis platform and sequencing resource for breast cancer**, published in [*Science Advances (2022)*](https://www.science.org/doi/10.1126/sciadv.abg6711).
+
+The repository contains the pipeline used to analyze RNA isoforms and ORF products sequenced from breast cancer samples using PacBio long-read sequencing.
+
 
 ## Bulk download of long-read isoforms
 
