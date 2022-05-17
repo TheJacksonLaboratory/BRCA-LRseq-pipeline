@@ -17,8 +17,8 @@ Quality control performed using custom scripts, including redudancy removal, min
 
 
 ### All isoforms (before QC)
-- [Original ToFU GTF] (https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/isoforms_before_QC/PacBio_Breast_cancer_allTranscripts.gtf.gz)
-- [SQANTI2 GTF file](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/0_Upstream_Analysis/ii_SQANTI2/PacBio_Breast_cancer_allTranscripts_corrected.gtf.zip) with indel correction
+- Original ToFU [GTF](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/isoforms_before_QC/PacBio_Breast_cancer_allTranscripts.gtf.gz)
+- SQANTI2 [GTF file](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/0_Upstream_Analysis/ii_SQANTI2/PacBio_Breast_cancer_allTranscripts_corrected.gtf.zip) with indel correction
 - [SQANTI2 annotation all isoforms](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/tree/main/0_Upstream_Analysis/ii_SQANTI2), with isoform and junction tables
 - Full-length counts per sample - [table](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/isoforms_before_QC/BRCA_superPBID_counts.tsv.zip).
 
