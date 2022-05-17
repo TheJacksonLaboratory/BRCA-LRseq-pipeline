@@ -16,7 +16,7 @@ pac_exons_df <- as.data.frame(pac_exons)
 
 txn_ids <- unique(pac_gtf$transcript_id)
 
-res <- mclapply(1:1000, function(i){
+res <- mclapply(1:length(txn_ids), function(i){
   
   gid <- pac_exons_df %>% filter(transcript_id == txn_ids[i]) %>% pull(gene_id) %>% unique()
   gene_txn <- pac_exons_df %>% filter(gene_id == gid) %>% pull(transcript_id) %>% unique()
