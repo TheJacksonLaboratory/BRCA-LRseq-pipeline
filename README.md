@@ -17,7 +17,7 @@ Quality control performed using custom scripts, see [1-Quality_control](https://
 
 
 ### All isoforms (before QC)
-- [SQANTI2 annotation all isoforms](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/tree/main/0_Upstream_Analysis/ii_SQANTI2)
-- 
+- [SQANTI2 annotation all isoforms](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/tree/main/0_Upstream_Analysis/ii_SQANTI2), with isoform and junction tables
+- Full-length counts per sample - [table](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/isoforms_before_QC/BRCA_superPBID_counts.tsv.zip).
 
 The data and source code (pipeline V.1) can also be downloaded from Zenodo using this [link](https://doi.org/10.5281/zenodo.5449836). 
