@@ -13,7 +13,7 @@ The repository contains the pipeline used to analyze RNA isoforms and ORF produc
 - [SQANTI2 annotation](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/QC_pass/Sqanti_annotation_QC_pass_transcripts_unique.txt.gz) of isoforms
 - [Open read frames](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/blob/main/data/QC_pass/QC_pass_transcripts.transdecoder.fasta.pep.zip) predicted by Transdecoder
 
-Quality control performed using custom scripts, see [1-Quality_control](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/tree/main/1_Quality_control).
+Quality control performed using custom scripts, including redudancy removal, minimal junction coverage and 3'end realiability. See [1-Quality_control](https://github.com/TheJacksonLaboratory/BRCA-LRseq-pipeline/tree/main/1_Quality_control).
 
 
 ### All isoforms (before QC)
